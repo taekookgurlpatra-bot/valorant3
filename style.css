@@ -127,3 +127,4 @@ button:hover { transform:scale(1.05); }
 /* GAME BUTTONS */
 .game-btn { width:120px; border-radius:15px; cursor:pointer; transition: transform 0.3s, box-shadow 0.3s; }
 .game-btn:hover { transform: scale(1.1) rotate(-2deg); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+
