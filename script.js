@@ -1,22 +1,24 @@
-let pages = document.querySelectorAll(".page");
-let currentPage = 0;
-let heartRain = document.getElementById("heartRain");
+let pages=document.querySelectorAll(".page");
+let container=document.getElementById("container");
+let currentPage=0;
 
-/* Show page by index */
+/* Show page using translateY */
 function showPage(index){
-  pages.forEach(p => p.classList.remove("active"));
-  pages[index].classList.add("active");
-  currentPage = index;
+  currentPage=index;
+  container.style.transform=`translateY(-${100*currentPage}vh)`;
 }
 
-/* Next / Previous buttons */
+/* Next / Previous navigation */
 function nextPage(id){
-  if(id){showPage([...pages].findIndex(p=>p.id===id));}
-  else if(currentPage < pages.length-1){showPage(currentPage+1);}
+  if(id){
+    let index=[...pages].findIndex(p=>p.id===id);
+    showPage(index);
+  } else if(currentPage<pages.length-1){showPage(currentPage+1);}
 }
 function prevPage(){if(currentPage>0) showPage(currentPage-1);}
 
-/* Hearts raining */
+/* Hearts rain */
+let heartRain=document.getElementById("heartRain");
 function rain(){
   let h=document.createElement("span");
   h.innerHTML="💗";
@@ -58,23 +60,11 @@ function openLetter(id){
   let text=id=="letter1" ? 
 `Hii Ashraf jaanu 💗✨
 Happy Valentine’s Day meri jaan…🤭💗
-Kabhi kabhi lagta hai ki life ne mujhe sabse unexpected but sabse beautiful surprise diya… aur woh aap ho 🫵🏻✨
 Door rehna thoda mushkil hota hai.. but distance ne sirf ek cheez prove ki hai ki aap mere liye kitne important ho 🫂🎀
-Tum sirf mere boyfriend nahi ho Ashraf… tum meri comfort ho… meri safe place ho.. aur meri har din ki happiness ho… 🥹🫵🏻💗
-Tumhare saath baat karna itna natural lagta hai jaise tum hamesha se meri life ka part the…😭✨
-Thank you for loving me…🫂
-Thank you for understanding me…💗
-Aur thank you for staying… even on days jab main thodi complicated ho jaati hoon 😋💗
-I love you endlessly Ashraf… aur ek din main tumhe woh saare hugs aur kisses dungi jo abhi pending hai 🫂✨💋
-I love you the most jaanuu 🥹✨🫵🏻`
+I love you endlessly Ashraf 🥹✨🫵🏻`
   :`Ashraf 💗
 Kabhi kabhi main sochti hoon… ki main itni lucky kaise ho gayi ki tum meri life mein aaye.. 🫂🫵🏻
-Thank you mujhe choose karne ke liye…🥹✨
-Thank you mere mood swings handle karne ke liye…💗✨
-Thank you meri bakwaas sunne ke liye…🤭🥀
-Aur thank you best boyfriend hone ke liye..😉🫵🏻
-Tumhare saath future imagine karna itna easy lagta hai… jaise life automatically sundar ho jaati hai..🤭💗
-Main promise karti hoon… chahe life mein kitni bhi problems aaye… main hamesha tumhare saath khadi rahungi..🫂🎀
+Thank you mujhe choose karne ke liye…💗✨
 I’m proud to call you mine Ashraf 😋✨💗`;
   document.getElementById(id=="letter1"?"l1":"l2").innerText=text;
 }
@@ -112,7 +102,7 @@ function ans(ansGiven,correct){
 }
 loadQ();
 
-/* Optional: swipe support */
+/* Swipe support */
 let startY=null;
 document.addEventListener('touchstart',e=>{startY=e.touches[0].clientY;});
 document.addEventListener('touchend',e=>{
