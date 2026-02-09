@@ -7,10 +7,10 @@ current=n
 pages[current].classList.add("active")
 }
 
-/* intro auto */
+/* Intro auto */
 setTimeout(()=>go(1),3000)
 
-/* hearts */
+/* Hearts rain */
 setInterval(()=>{
 let h=document.createElement("span")
 h.innerText="💗"
@@ -20,7 +20,7 @@ document.getElementById("heartRain").appendChild(h)
 setTimeout(()=>h.remove(),6000)
 },400)
 
-/* SONGS */
+/* MUSIC */
 let songs=[
 new Audio("assets/song1.mp3"),
 new Audio("assets/song2.mp3"),
@@ -30,40 +30,4 @@ new Audio("assets/song3.mp3")
 function playSong(i){
 songs.forEach(s=>s.pause())
 songs[i].play()
-}
-
-/* MINI GAMES */
-
-function tapGame(){
-document.getElementById("gameOutput").innerText=
-"Tap my heart faster next time Ashraf 😋💗"
-}
-
-function memoryGame(){
-let n=Math.floor(Math.random()*100)
-document.getElementById("gameOutput").innerText=
-"Remember this number: "+n
-}
-
-function emojiGame(){
-let arr=["💗","🫂","😋","✨"]
-let r=arr[Math.floor(Math.random()*arr.length)]
-document.getElementById("gameOutput").innerText=
-"Your emoji is "+r
-}
-
-function numberGame(){
-let n=Math.floor(Math.random()*10)
-document.getElementById("gameOutput").innerText=
-"Lucky number is "+n
-}
-
-function complimentGame(){
-let arr=[
-"You make my world softer 💗",
-"You are my comfort person 🫂",
-"Your smile heals me 😋"
-]
-let r=arr[Math.floor(Math.random()*arr.length)]
-document.getElementById("gameOutput").innerText=r
 }
