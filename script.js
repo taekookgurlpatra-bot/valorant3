@@ -38,7 +38,7 @@ let score=0
 
 let questions=[
 ["Where did we first start talking?",["Instagram DMs","WhatsApp","Discord","Snapchat"],0],
-["Who confessed first?",["You","Ashraf","Both","Confused"],0],
+["Who confessed first?",["Debasmita","Ashraf","Both","Confused"],0],
 ["Fav thing together?",["Talk","Watch","Memes","All"],3],
 ["Relationship vibe?",["Chaotic","Soft","Funny","All"],3],
 ["Reminds of him?",["Songs","Talks","Msgs","All"],3],
@@ -94,3 +94,4 @@ document.getElementById("l2").innerText=
 `Thank you mujhe choose karne ke liye 💗`
 }
 }
+
