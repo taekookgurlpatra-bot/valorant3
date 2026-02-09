@@ -11,7 +11,7 @@ setInterval(rain,400);
 
 /* MINI GAMES */
 function startPuzzle(){let area=document.getElementById("gameArea");area.innerHTML=`<img src="assets/images/puzzle-image.jpg" width="200">`;alert("Complete the puzzle mentally 😌💗");}
-function heartGame(){let area=document.getElementById("gameArea");area.innerHTML="";for(let i=0;i<6;i++){let h=document.createElement("span");h.innerHTML="💗";h.style.fontSize="40px";h.style.margin="10px";h.onclick=()=>{h.remove();alert("Love grows in tiny moments 💗");};area.appendChild(h);}}
+function heartGame(){let area=document.getElementById("gameArea");area.innerHTML="";for(let i=0;i<6;i++){let h=document.createElement("span");h.innerHTML="💗";h.style.fontSize="40px";h.style.margin="10px";h.onclick=()=>{h.remove();alert("Love grows in tiny moments 💗");};area.appendChild(h);}
 
 /* MUSIC */
 function play(i){let audios=document.querySelectorAll("audio");audios.forEach(a=>a.pause());audios[i].play();}
@@ -39,15 +39,12 @@ let quizQ=[
 ["What do I want our future to look like?","Travelling together","Building a cozy life","Creating memories daily","All of the above","D"]
 ];
 let qi=0,score=0;
-function loadQ(){
-  if(qi>=quizQ.length){document.getElementById("quizBox").innerHTML=`Score ${score}/10 💗 <br><button onclick="go('letter1')">Continue</button>`;return;}
-  let d=quizQ[qi];
-  document.getElementById("quizBox").innerHTML=`<p>${d[0]}</p>
-  <button onclick="ans('${d[1]}','${d[5]}')">${d[1]}</button>
-  <button onclick="ans('${d[2]}','${d[5]}')">${d[2]}</button>
-  <button onclick="ans('${d[3]}','${d[5]}')">${d[3]}</button>
-  <button onclick="ans('${d[4]}','${d[5]}')">${d[4]}</button>`;
-}
+function loadQ(){if(qi>=quizQ.length){document.getElementById("quizBox").innerHTML=`Score ${score}/10 💗 <br><button onclick="go('letter1')">Continue</button>`;return;}
+let d=quizQ[qi];
+document.getElementById("quizBox").innerHTML=`<p>${d[0]}</p>
+<button onclick="ans('${d[1]}','${d[5]}')">${d[1]}</button>
+<button onclick="ans('${d[2]}','${d[5]}')">${d[2]}</button>
+<button onclick="ans('${d[3]}','${d[5]}')">${d[3]}</button>
+<button onclick="ans('${d[4]}','${d[5]}')">${d[4]}</button>`;}
 function ans(ansGiven,correct){if(ansGiven==correct) score++;qi++;loadQ();}
 loadQ();
-
