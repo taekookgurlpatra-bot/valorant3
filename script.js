@@ -2,6 +2,7 @@ let pages = document.querySelectorAll(".page");
 let heartRain = document.getElementById("heartRain");
 let visited = new Set();
 
+/* PAGE TRANSITION */
 function go(id) {
   pages.forEach(p => p.classList.remove("active"));
   document.getElementById(id).classList.add("active");
@@ -13,7 +14,7 @@ function back() {
   go('menu');
 }
 
-/* HEARTS RAIN */
+/* HEART RAIN */
 function rain() {
   let h = document.createElement("span");
   h.innerHTML = "💗";
@@ -69,6 +70,7 @@ let q = [
 ];
 
 let qi = 0, score = 0;
+
 function loadQ() {
   if(qi >= q.length) {
     document.getElementById("quizBox").innerHTML = `
@@ -88,6 +90,7 @@ function loadQ() {
     <button onclick="ans('${d[4]}')">${d[4]}</button>
   `;
 }
+
 function ans(a) {
   if(a === q[qi][5]) score++;
   qi++;
@@ -103,8 +106,6 @@ function openLetter(id){
 `Hii Ashraf jaanu 💗✨
 
 Happy Valentine’s Day meri jaan…🤭💗
-Kabhi kabhi lagta hai ki life ne mujhe sabse unexpected but sabse beautiful surprise diya… aur woh aap ho 🫵🏻✨
-
 Door rehna thoda mushkil hota hai.. but distance ne sirf prove ki ki aap mere liye kitne important ho 🫂🎀
 
 Tum sirf mere boyfriend nahi ho Ashraf… tum meri comfort ho.. meri safe place ho.. meri har din ki happiness ho 🥹🫵🏻💗
@@ -132,3 +133,6 @@ I’m proud to call you mine Ashraf 😋✨💗`;
 
   document.getElementById(id==='letter1'?'l1':'l2').innerText = text;
 }
+
+/* AUTO TRANSITION FROM INTRO TO MENU */
+setTimeout(() => go('menu'), 3000);
