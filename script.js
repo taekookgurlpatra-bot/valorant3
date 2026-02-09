@@ -1,22 +1,21 @@
 let pages=document.querySelectorAll(".page");
 let heartRain=document.getElementById("heartRain");
 
-/* PAGE SWITCHING */
 function go(id){pages.forEach(p=>p.classList.remove("active"));document.getElementById(id).classList.add("active");}
 function back(){go('menu');}
 
-/* HEART RAIN */
+/* Hearts raining */
 function rain(){let h=document.createElement("span");h.innerHTML="💗";h.style.left=Math.random()*100+"vw";h.style.fontSize=(Math.random()*20+15)+"px";heartRain.appendChild(h);setTimeout(()=>h.remove(),6000);}
 setInterval(rain,400);
 
-/* MINI GAMES */
-function startPuzzle(){let area=document.getElementById("gameArea");area.innerHTML=`<img src="assets/images/puzzle-image.jpg" width="200">`;alert("Complete the puzzle mentally 😌💗");}
+/* Mini games */
+function startPuzzle(){let area=document.getElementById("gameArea");area.innerHTML=`<img src="assets/images/puzzle.png" width="200">`;alert("Complete the puzzle mentally 😌💗");}
 function heartGame(){let area=document.getElementById("gameArea");area.innerHTML="";for(let i=0;i<6;i++){let h=document.createElement("span");h.innerHTML="💗";h.style.fontSize="40px";h.style.margin="10px";h.onclick=()=>{h.remove();alert("Love grows in tiny moments 💗");};area.appendChild(h);}
 
-/* MUSIC */
+/* Music */
 function play(i){let audios=document.querySelectorAll("audio");audios.forEach(a=>a.pause());audios[i].play();}
 
-/* LETTERS */
+/* Letters */
 function openLetter(id){
   document.querySelector(`#${id} .closed`).style.display="none";
   document.getElementById(`${id}-open`).style.display="block";
@@ -25,10 +24,10 @@ function openLetter(id){
   document.getElementById(id=="letter1"?"l1":"l2").innerText=text;
 }
 
-/* QUIZ */
+/* Quiz */
 let quizQ=[
 ["Where did we first start talking?","Instagram DMs","WhatsApp","Discord","Snapchat","A"],
-["Who confessed feelings first?","Debasmita","Ashraf","Both together","Still confused 😋","A"],
+["Who confessed feelings first?","You","Ashraf","Both together","Still confused 😋","A"],
 ["Our favourite thing to do together is?","Talking endlessly","Watching stuff together","Sending reels/memes","All of the above","D"],
 ["What best describes our relationship vibe?","Chaotic but cute","Soft & comforting","Funny & dramatic","All of the above","D"],
 ["What is something that reminds me of Ashraf instantly?","Songs","Late night talks","Random cute messages","All of the above","D"],
