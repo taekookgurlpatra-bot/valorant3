@@ -9,7 +9,7 @@ body{
   overflow:hidden;
 }
 
-/* PAGE SYSTEM — FIXED */
+/* PAGE SYSTEM */
 .page{
   display:none;
   height:100vh;
@@ -47,6 +47,11 @@ body{
   border-radius:25px;
   font-size:18px;
   cursor:pointer;
+  transition: transform 0.3s ease;
+}
+
+.menuBtn:hover{
+  transform: scale(1.05);
 }
 
 /* COLORS */
@@ -55,30 +60,63 @@ body{
 .peach{background:#ffe3c4;}
 .mint{background:#d7f7ec;}
 
-/* SCROLL */
+/* SCROLLABLE PREMIUM POLAROIDS */
 .scroll{
   display:flex;
   overflow-x:auto;
-  gap:15px;
-  width:90%;
+  gap:20px;
+  padding-bottom:20px;
+  -webkit-overflow-scrolling: touch;
+  cursor: grab;
+  scroll-snap-type: x mandatory;
 }
 
 .scroll img{
-  height:200px;
-}
-
-/* SPOTIFY */
-.spotify{
-  width:250px;
-  margin:10px;
-}
-
-/* QUOTES */
-.quote{
-  background:white;
-  padding:15px;
+  height:220px;
+  flex:0 0 auto;
   border-radius:15px;
-  min-width:200px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform: rotate(calc(-5deg + 10deg * var(--i)));
+  scroll-snap-align: center;
+}
+
+.scroll img:hover{
+  transform: scale(1.05) rotate(calc(-5deg + 10deg * var(--i)));
+  box-shadow: 0 20px 30px rgba(0,0,0,0.25);
+}
+
+/* MUSIC */
+.musicCard{
+  position: relative;
+  display: inline-block;
+  margin: 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.musicCard:hover{
+  transform: translateY(-5px);
+  box-shadow: 0 15px 25px rgba(0,0,0,0.25);
+}
+
+.musicCard img{
+  display:block;
+  width:250px;
+  border-radius:15px;
+}
+
+.musicCard button{
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  padding:10px 12px;
+  font-size:18px;
+  border:none;
+  border-radius:50%;
+  background: rgba(255,255,255,0.8);
+  cursor:pointer;
 }
 
 /* HEART RAIN */
@@ -91,7 +129,3 @@ body{
 @keyframes fall{
   to{transform:translateY(110vh);}
 }
-
-.musicCard{
-  margin:15px;
-
