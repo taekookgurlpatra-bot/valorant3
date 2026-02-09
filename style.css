@@ -1,20 +1,93 @@
-let pages=document.querySelectorAll(".page")
-let current=0
-
-function go(n){
-pages[current].classList.remove("active")
-current=n
-pages[current].classList.add("active")
+*{
+  box-sizing:border-box;
+  font-family:'Patrick Hand', cursive;
 }
 
-setTimeout(()=>go(1),3000)
+body{
+  margin:0;
+  background:url("assets/bg-image.jpg") center/cover fixed;
+  overflow:hidden;
+}
+
+/* PAGE SYSTEM — FIXED */
+.page{
+  display:none;
+  height:100vh;
+  width:100vw;
+  text-align:center;
+  padding:20px;
+}
+
+.page.active{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
+
+/* GIF */
+.gif{
+  width:70%;
+  max-width:320px;
+}
+
+/* MENU GRID */
+.menuGrid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+  width:80%;
+  max-width:350px;
+  margin-top:20px;
+}
+
+.menuBtn{
+  padding:18px;
+  border:none;
+  border-radius:25px;
+  font-size:18px;
+  cursor:pointer;
+}
+
+/* COLORS */
+.pink{background:#ffd6e8;}
+.purple{background:#e6d8ff;}
+.peach{background:#ffe3c4;}
+.mint{background:#d7f7ec;}
+
+/* SCROLL */
+.scroll{
+  display:flex;
+  overflow-x:auto;
+  gap:15px;
+  width:90%;
+}
+
+.scroll img{
+  height:200px;
+}
+
+/* SPOTIFY */
+.spotify{
+  width:250px;
+  margin:10px;
+}
+
+/* QUOTES */
+.quote{
+  background:white;
+  padding:15px;
+  border-radius:15px;
+  min-width:200px;
+}
 
 /* HEART RAIN */
-setInterval(()=>{
-let h=document.createElement("span")
-h.innerText="💗"
-h.style.left=Math.random()*100+"vw"
-h.style.fontSize=15+Math.random()*20+"px"
-document.getElementById("heartRain").appendChild(h)
-setTimeout(()=>h.remove(),6000)
-},400)
+#heartRain span{
+  position:fixed;
+  top:-20px;
+  animation:fall 6s linear;
+}
+
+@keyframes fall{
+  to{transform:translateY(110vh);}
+}
