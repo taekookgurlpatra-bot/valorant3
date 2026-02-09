@@ -32,4 +32,3 @@ function playSong(i){
   songs[i].currentTime = 0
   songs[i].play()
 }
-
