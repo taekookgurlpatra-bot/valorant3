@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For Ashraf 💗</title>
 
@@ -14,79 +13,172 @@
 <div id="heartRain"></div>
 
 <!-- INTRO -->
-<section class="page active" id="intro">
-  <h2>Gathering sparkles 💗✨</h2>
-  <img src="assets/intro.gif" class="gif">
+<section class="page active">
+<h2>Gathering sparkles 💗✨..</h2>
+<img src="assets/intro.gif" class="gif">
 </section>
 
 <!-- MENU -->
-<section class="page" id="menu">
-  <h2>Just little things for you 💕</h2>
+<section class="page">
+<img src="assets/main.gif" class="gif">
+<p>Enjoy your presents qt 😘🫵🏻</p>
 
-  <div class="menu">
-    <button onclick="go('fun')">🎮 Fun Zone</button>
-    <button onclick="go('music')">🎶 Music</button>
-    <button onclick="go('promises')">💌 Promises</button>
-    <button onclick="go('heart')">❤️ One Last Thing</button>
-  </div>
+<div class="menu-grid">
+
+<div class="menu-card" onclick="go(2)">
+<img src="assets/polaroid1.png">
+<p>You + Me = ♡</p>
+</div>
+
+<div class="menu-card" onclick="go(3)">
+<img src="assets/game-image.png">
+<p>Fun zone 💗✨</p>
+</div>
+
+<div class="menu-card" onclick="go(4)">
+<img src="assets/spotify1.png">
+<p>Melodies enchanted by you 🎧🎀</p>
+</div>
+
+<div class="menu-card" onclick="go(5)">
+<img src="assets/quoteCard.png">
+<p>Promises 😋💗</p>
+</div>
+
+</div>
+
+<img src="assets/heart.gif" class="heart" onclick="go(6)">
 </section>
 
-<!-- FUN -->
-<section class="page" id="fun">
-  <h2>Fun Zone 🎮</h2>
+<!-- POLAROID -->
+<section class="page">
+<h2>Us 💗</h2>
+<div class="scroll">
+<img src="assets/polaroid1.png">
+<img src="assets/polaroid2.png">
+<img src="assets/polaroid3.png">
+<img src="assets/polaroid4.png">
+</div>
+<button onclick="go(1)">Back</button>
+</section>
 
-  <img src="assets/game-image.png" class="btn-img">
-  <img src="assets/puzzle-image.png" class="btn-img">
+<!-- FUN ZONE -->
+<section class="page">
+<h2>Mini Games 🎮</h2>
+<div class="scroll">
 
-  <button onclick="go('menu')">⬅ Back</button>
+<div class="game-btn" onclick="alert('Tap hearts quickly 💗')">
+<img src="assets/game-image.png">
+</div>
+
+<div class="game-btn" onclick="alert('Solve puzzle mentally 🧩')">
+<img src="assets/puzzle-image.png">
+</div>
+
+<div class="game-btn" onclick="alert('Memory game 💭')">
+<img src="assets/game-image.png">
+</div>
+
+<div class="game-btn" onclick="alert('Emoji guess 😋')">
+<img src="assets/game-image.png">
+</div>
+
+<div class="game-btn" onclick="alert('Find heart 💗')">
+<img src="assets/game-image.png">
+</div>
+
+<div class="game-btn" onclick="alert('Speed tap game ⚡')">
+<img src="assets/game-image.png">
+</div>
+
+<div class="game-btn" onclick="alert('Love quiz mini 💕')">
+<img src="assets/game-image.png">
+</div>
+
+<div class="game-btn" onclick="alert('Guess song 🎧')">
+<img src="assets/game-image.png">
+</div>
+
+<div class="game-btn" onclick="alert('Matching cards 🎴')">
+<img src="assets/game-image.png">
+</div>
+
+<div class="game-btn" onclick="alert('Random cute task ✨')">
+<img src="assets/game-image.png">
+</div>
+
+</div>
+
+<button onclick="go(1)">Back</button>
 </section>
 
 <!-- MUSIC -->
-<section class="page" id="music">
-  <h2>Our Songs 🎶</h2>
+<section class="page">
+<h2>Songs that remind me of you 💗</h2>
 
-  <audio controls src="assets/song1.mp3"></audio>
-  <audio controls src="assets/song2.mp3"></audio>
-  <audio controls src="assets/song3.mp3"></audio>
+<div class="song">
+<img src="assets/spotify1.png">
+<button onclick="playSong(0)">▶</button>
+</div>
 
-  <button onclick="go('menu')">⬅ Back</button>
+<div class="song">
+<img src="assets/spotify2.png">
+<button onclick="playSong(1)">▶</button>
+</div>
+
+<div class="song">
+<img src="assets/spotify3.png">
+<button onclick="playSong(2)">▶</button>
+</div>
+
+<button onclick="go(1)">Back</button>
 </section>
 
 <!-- PROMISES -->
-<section class="page" id="promises">
-  <h2>Promises 😋💗</h2>
+<section class="page">
+<h2>Promises 😋💗</h2>
 
-  <div class="quotes">
-    <div>I will choose you everyday… not just when it’s easy 💞</div>
-    <div>I will protect your heart like it’s my own 🫶</div>
-    <div>I will grow with you… not apart from you 🌱</div>
-    <div>I will honor our love, even in small things ✨</div>
-    <div>To the moon & beyond, forever & always 🌙💫</div>
-  </div>
+<div class="scroll">
+<div class="quote">I will choose you everyday..not just when it's easy 💗</div>
+<div class="quote">I will protect ur heart like it's my own 🫂</div>
+<div class="quote">I will grow with you..not apart from you 🌸</div>
+<div class="quote">I will honor our love..even in the smallest things ✨</div>
+<div class="quote">I love you to infinity and beyond 🚀💗</div>
+</div>
 
-  <button onclick="go('menu')">⬅ Back</button>
+<button onclick="go(1)">Back</button>
 </section>
 
-<!-- HEART -->
-<section class="page" id="heart">
-  <h2>Tap the heart ❤️</h2>
-  <img src="assets/heart.gif" class="gif" onclick="go('letters')">
+<!-- QUIZ -->
+<section class="page">
+<div id="quizBox"></div>
 </section>
 
-<!-- LETTERS -->
-<section class="page" id="letters">
-  <h2>For You 💌</h2>
+<!-- LETTER 1 -->
+<section class="page">
+<img src="assets/letter1.png" class="letter" onclick="openLetter('l1')">
+<img src="assets/letter1-open.png" id="l1Open" class="letter" style="display:none">
 
-  <img src="assets/letter1.png" class="letter" onclick="openLetter(this,'assets/letter1-open.png')">
-  <img src="assets/letter2.png" class="letter" onclick="openLetter(this,'assets/letter2-open.png')">
+<p id="l1" class="letterText"></p>
 
-  <button onclick="go('final')">Continue 💗</button>
+<button onclick="go(8)">Next</button>
+</section>
+
+<!-- LETTER 2 -->
+<section class="page">
+<img src="assets/letter2.png" class="letter" onclick="openLetter('l2')">
+<img src="assets/letter2-open.png" id="l2Open" class="letter" style="display:none">
+
+<p id="l2" class="letterText"></p>
+
+<button onclick="go(9)">Finish</button>
 </section>
 
 <!-- FINAL -->
-<section class="page" id="final">
-  <h2>Thank you for existing 💖</h2>
-  <img src="assets/final.gif" class="gif">
+<section class="page">
+<h1>Thank you Ashraf 💗</h1>
+<img src="assets/final.gif" class="gif">
+<button onclick="location.reload()">Restart</button>
 </section>
 
 <script src="script.js"></script>
