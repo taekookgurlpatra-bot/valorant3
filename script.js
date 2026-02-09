@@ -70,3 +70,4 @@ function loadQ(){
   document.getElementById("quizBox").innerHTML=`
    
 
+
