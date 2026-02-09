@@ -1,11 +1,18 @@
-body{
+*{
 margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Patrick Hand', cursive;
+}
+
+body{
 height:100vh;
-font-family:'Patrick Hand',cursive;
+overflow:hidden;
 background:url("assets/bg-image.jpg") center/cover fixed;
 color:black;
 }
 
+/* PAGES */
 .page{
 display:none;
 height:100vh;
@@ -14,16 +21,91 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
+padding:20px;
 }
 
 .page.active{
 display:flex;
 }
 
+/* GIF */
 .gif{
-width:80%;
-max-width:320px;
+width:260px;
+margin:20px;
 }
 
+/* MENU */
+.menu-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+margin-top:20px;
+}
 
+.menu-card{
+width:150px;
+cursor:pointer;
+transition:0.3s;
+}
 
+.menu-card:hover{
+transform:scale(1.05);
+}
+
+.menu-card img{
+width:100%;
+}
+
+.menuText{
+font-size:20px;
+margin-top:10px;
+}
+
+/* BACK BUTTON */
+.backBtn{
+position:absolute;
+bottom:30px;
+left:20px;
+background:rgba(255,255,255,0.7);
+border:none;
+padding:8px 15px;
+border-radius:15px;
+cursor:pointer;
+}
+
+/* HEART REVEAL */
+#heartReveal{
+position:fixed;
+inset:0;
+display:flex;
+justify-content:center;
+align-items:center;
+background:rgba(0,0,0,0.2);
+backdrop-filter:blur(4px);
+opacity:0;
+pointer-events:none;
+transition:0.5s;
+}
+
+#heartReveal img{
+width:160px;
+animation:pulse 2s infinite;
+cursor:pointer;
+}
+
+@keyframes pulse{
+0%{transform:scale(1);}
+50%{transform:scale(1.15);}
+100%{transform:scale(1);}
+}
+
+/* HEART RAIN */
+.heartDrop{
+position:fixed;
+top:-20px;
+animation:fall 6s linear forwards;
+}
+
+@keyframes fall{
+to{transform:translateY(110vh);}
+}
