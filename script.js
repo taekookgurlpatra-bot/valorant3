@@ -9,7 +9,7 @@ pages[current].classList.add("active")
 
 setTimeout(()=>go(1),3500)
 
-// Hearts rain
+// Heart rain
 setInterval(()=>{
 let h=document.createElement("span")
 h.innerHTML="💗"
