@@ -1,69 +1,29 @@
-*{
-  box-sizing:border-box;
-}
-
 body{
-  margin:0;
-  height:100vh;
-  overflow:hidden;
-  font-family:'Patrick Hand', cursive;
-
-  background:url("assets/bg-image.jpg") center/cover fixed;
-  color:black;
+margin:0;
+height:100vh;
+font-family:'Patrick Hand',cursive;
+background:url("assets/bg-image.jpg") center/cover fixed;
+color:black;
 }
 
 .page{
-  display:none;
-  height:100vh;
-  width:100vw;
-
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  padding:20px;
+display:none;
+height:100vh;
+width:100vw;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
 }
 
 .page.active{
-  display:flex;
+display:flex;
 }
 
 .gif{
-  max-width:80%;
-  margin:20px 0;
+width:80%;
+max-width:320px;
 }
 
-.menu button{
-  display:block;
-  margin:10px;
-  padding:15px 25px;
-  font-size:18px;
-  border:none;
-  border-radius:20px;
-  background:#fff;
-}
 
-.btn-img{
-  width:150px;
-  margin:10px;
-}
-
-.quotes div{
-  background:rgba(255,255,255,0.8);
-  margin:10px;
-  padding:15px;
-  border-radius:15px;
-}
-
-.letter{
-  width:200px;
-  margin:10px;
-}
-
-#heartRain{
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  background:transparent;
-}
 
