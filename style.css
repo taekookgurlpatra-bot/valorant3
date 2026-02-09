@@ -1,223 +1,81 @@
-/* ---------------- PAGE NAVIGATION ---------------- */
-
-let pages = document.querySelectorAll(".page")
-let current = 0
-
-function go(num){
-pages[current].classList.remove("active")
-current = num
-pages[current].classList.add("active")
+*{
+  box-sizing:border-box;
+  font-family:'Patrick Hand', cursive;
 }
 
-/* Auto move intro to menu */
-setTimeout(()=>go(1),3500)
-
-
-
-/* ---------------- HEART RAIN ---------------- */
-
-setInterval(()=>{
-let h = document.createElement("span")
-h.innerHTML = "💗"
-h.className = "heartDrop"
-h.style.left = Math.random()*100+"vw"
-h.style.fontSize = Math.random()*20+15+"px"
-document.body.appendChild(h)
-
-setTimeout(()=>h.remove(),6000)
-
-},400)
-
-
-
-/* ---------------- MUSIC PLAYER ---------------- */
-
-let songs = [
-new Audio("assets/song1.mp3"),
-new Audio("assets/song2.mp3"),
-new Audio("assets/song3.mp3")
-]
-
-function playSong(i){
-songs.forEach(s=>s.pause())
-songs[i].play()
+body{
+  margin:0;
+  background:url("assets/bg-image.jpg") center/cover fixed;
+  overflow:hidden;
 }
 
+/* PAGE SYSTEM */
+.page{
+  display:none;
+  height:100vh;
+  width:100vw;
+  text-align:center;
 
-
-/* ---------------- QUIZ ---------------- */
-
-let q = 0
-let score = 0
-
-let questions = [
-
-["Where did we first start talking?",
-["Instagram DMs","WhatsApp","Discord","Snapchat"],0],
-
-["Who confessed first?",
-["You","Ashraf","Both together","Still confused 😋"],0],
-
-["Our favourite thing to do together is?",
-["Talking endlessly","Watching stuff","Sending reels","All of the above"],3],
-
-["What best describes our relationship vibe?",
-["Chaotic but cute","Soft & comforting","Funny & dramatic","All of the above"],3],
-
-["What reminds me of Ashraf instantly?",
-["Songs","Late night talks","Cute messages","All of the above"],3],
-
-["What do we do after small fights?",
-["Ignore","Talk it out","Send memes","Virtual hug"],3],
-
-["My favourite thing about Ashraf?",
-["Personality","Caring nature","Smile & humour","Everything"],3],
-
-["Which emoji represents us best?",
-["🫂","💗","😋✨","All of them"],3],
-
-["Our relationship feels like?",
-["Best friendship","Safe home","Adventure","All of the above"],3],
-
-["What do I want our future to look like?",
-["Travelling together","Cozy life","Creating memories","All of the above"],3]
-
-]
-
-
-function loadQ(){
-
-let box = document.getElementById("quizBox")
-
-if(!box) return
-
-let data = questions[q]
-
-box.innerHTML = `
-<h2>${data[0]}</h2>
-${data[1].map((opt,i)=>
-`<button onclick="answer(${i})">${opt}</button>`
-).join("")}
-`
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
 }
 
-function answer(i){
-
-if(i === questions[q][2]) score++
-
-q++
-
-if(q < questions.length){
-loadQ()
-}
-else{
-finishQuiz()
+.page.active{
+  display:flex;
 }
 
+/* GIF */
+.gif{
+  width:70%;
+  max-width:350px;
 }
 
-function finishQuiz(){
-
-let percent = score*10
-let msg = ""
-
-if(percent>=90) msg="Okay wow Ashraf… certified soulmate 😋💗"
-else if(percent>=70) msg="Not bad… tum dhyaan dete ho mujhe 😌✨"
-else if(percent>=50) msg="Hmm improvement needed mister 😏"
-else msg="Punishment = extra hugs owed 🫂"
-
-document.getElementById("quizBox").innerHTML = `
-<h2>${percent}%</h2>
-<p>${msg}</p>
-<button onclick="go(7)">Open Letters 💌</button>
-`
+/* MENU TEXT */
+.menu-text{
+  font-size:20px;
+  margin-top:10px;
 }
 
-
-
-/* Load quiz safely */
-window.onload = ()=>{
-loadQ()
+/* MENU GRID */
+.menu-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+  margin-top:30px;
+  width:80%;
+  max-width:350px;
 }
 
+/* PREMIUM BUTTONS */
+.menu-btn{
+  padding:18px;
+  border:none;
+  border-radius:25px;
 
+  background:rgba(255,255,255,0.85);
+  backdrop-filter:blur(6px);
 
-/* ---------------- LETTER OPEN ---------------- */
-
-function openLetter(id){
-
-document.getElementById(id+"Open").style.display="block"
-
-if(id==="l1"){
-document.getElementById("l1").innerText =
-`Hii Ashraf jaanu 💗✨
-
-Happy Valentine’s Day meri jaan…🤭💗
-
-Door rehna mushkil hota hai… but tum meri comfort ho 🫂🎀
-
-Tum meri safe place ho… meri happiness ho 🥹💗
-
-I love you endlessly Ashraf 🫵🏻💗`
+  font-size:18px;
+  cursor:pointer;
+  transition:0.3s;
 }
 
-if(id==="l2"){
-document.getElementById("l2").innerText =
-`Ashraf 💗
-
-Thank you mujhe choose karne ke liye…🥹✨
-
-Thank you best boyfriend hone ke liye 😉🫵🏻
-
-Main hamesha tumhare saath rahungi 🫂🎀
-
-I’m proud to call you mine 😋💗`
+.menu-btn:hover{
+  transform:scale(1.05);
+  background:rgba(255,220,235,0.9);
 }
 
+/* HEART RAIN */
+#heartRain span{
+  position:fixed;
+  top:-20px;
+  animation:fall 6s linear;
 }
 
-
-
-/* ---------------- MINI GAME : TAP HEART ---------------- */
-
-function startHeartGame(){
-
-let area = document.getElementById("gameArea")
-
-area.innerHTML = `
-<h3>Tap hearts before time ends 💗</h3>
-<p id="score">Score: 0</p>
-<div id="heartField"></div>
-`
-
-let score = 0
-let scoreText = document.getElementById("score")
-let field = document.getElementById("heartField")
-
-let spawn = setInterval(()=>{
-
-let heart = document.createElement("span")
-heart.innerHTML="💗"
-heart.style.fontSize="35px"
-heart.style.margin="10px"
-heart.style.cursor="pointer"
-
-heart.onclick = ()=>{
-score++
-scoreText.innerText = "Score: "+score
-heart.remove()
+@keyframes fall{
+  to{transform:translateY(110vh)}
 }
 
-field.appendChild(heart)
-
-},700)
-
-
-setTimeout(()=>{
-clearInterval(spawn)
-alert("Game Over 💗 Score: "+score)
-},10000)
-
-}
 
 
