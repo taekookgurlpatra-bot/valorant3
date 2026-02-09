@@ -1,163 +1,221 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Patrick Hand', cursive;
+/* ---------------- PAGE NAVIGATION ---------------- */
+
+let pages = document.querySelectorAll(".page")
+let current = 0
+
+function go(num){
+pages[current].classList.remove("active")
+current = num
+pages[current].classList.add("active")
 }
 
-body{
-height:100vh;
-overflow:hidden;
-background:url("assets/bg-image.jpg") center/cover fixed;
-color:black;
+/* Auto move intro to menu */
+setTimeout(()=>go(1),3500)
+
+
+
+/* ---------------- HEART RAIN ---------------- */
+
+setInterval(()=>{
+let h = document.createElement("span")
+h.innerHTML = "💗"
+h.className = "heartDrop"
+h.style.left = Math.random()*100+"vw"
+h.style.fontSize = Math.random()*20+15+"px"
+document.body.appendChild(h)
+
+setTimeout(()=>h.remove(),6000)
+
+},400)
+
+
+
+/* ---------------- MUSIC PLAYER ---------------- */
+
+let songs = [
+new Audio("assets/song1.mp3"),
+new Audio("assets/song2.mp3"),
+new Audio("assets/song3.mp3")
+]
+
+function playSong(i){
+songs.forEach(s=>s.pause())
+songs[i].play()
 }
 
-/* PAGES */
-.page{
-display:none;
-height:100vh;
-width:100vw;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:20px;
+
+
+/* ---------------- QUIZ ---------------- */
+
+let q = 0
+let score = 0
+
+let questions = [
+
+["Where did we first start talking?",
+["Instagram DMs","WhatsApp","Discord","Snapchat"],0],
+
+["Who confessed first?",
+["You","Ashraf","Both together","Still confused 😋"],0],
+
+["Our favourite thing to do together is?",
+["Talking endlessly","Watching stuff","Sending reels","All of the above"],3],
+
+["What best describes our relationship vibe?",
+["Chaotic but cute","Soft & comforting","Funny & dramatic","All of the above"],3],
+
+["What reminds me of Ashraf instantly?",
+["Songs","Late night talks","Cute messages","All of the above"],3],
+
+["What do we do after small fights?",
+["Ignore","Talk it out","Send memes","Virtual hug"],3],
+
+["My favourite thing about Ashraf?",
+["Personality","Caring nature","Smile & humour","Everything"],3],
+
+["Which emoji represents us best?",
+["🫂","💗","😋✨","All of them"],3],
+
+["Our relationship feels like?",
+["Best friendship","Safe home","Adventure","All of the above"],3],
+
+["What do I want our future to look like?",
+["Travelling together","Cozy life","Creating memories","All of the above"],3]
+
+]
+
+
+function loadQ(){
+
+let box = document.getElementById("quizBox")
+
+if(!box) return
+
+let data = questions[q]
+
+box.innerHTML = `
+<h2>${data[0]}</h2>
+${data[1].map((opt,i)=>
+`<button onclick="answer(${i})">${opt}</button>`
+).join("")}
+`
 }
 
-.page.active{
-display:flex;
+function answer(i){
+
+if(i === questions[q][2]) score++
+
+q++
+
+if(q < questions.length){
+loadQ()
+}
+else{
+finishQuiz()
 }
 
-/* GIF */
-.gif{
-width:260px;
-margin:20px;
 }
 
-/* MENU */
-.menu-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:20px;
-margin-top:20px;
+function finishQuiz(){
+
+let percent = score*10
+let msg = ""
+
+if(percent>=90) msg="Okay wow Ashraf… certified soulmate 😋💗"
+else if(percent>=70) msg="Not bad… tum dhyaan dete ho mujhe 😌✨"
+else if(percent>=50) msg="Hmm improvement needed mister 😏"
+else msg="Punishment = extra hugs owed 🫂"
+
+document.getElementById("quizBox").innerHTML = `
+<h2>${percent}%</h2>
+<p>${msg}</p>
+<button onclick="go(7)">Open Letters 💌</button>
+`
 }
 
-.menu-card{
-width:150px;
-cursor:pointer;
-transition:0.3s;
+
+
+/* Load quiz safely */
+window.onload = ()=>{
+loadQ()
 }
 
-.menu-card:hover{
-transform:scale(1.05);
+
+
+/* ---------------- LETTER OPEN ---------------- */
+
+function openLetter(id){
+
+document.getElementById(id+"Open").style.display="block"
+
+if(id==="l1"){
+document.getElementById("l1").innerText =
+`Hii Ashraf jaanu 💗✨
+
+Happy Valentine’s Day meri jaan…🤭💗
+
+Door rehna mushkil hota hai… but tum meri comfort ho 🫂🎀
+
+Tum meri safe place ho… meri happiness ho 🥹💗
+
+I love you endlessly Ashraf 🫵🏻💗`
 }
 
-.menu-card img{
-width:100%;
+if(id==="l2"){
+document.getElementById("l2").innerText =
+`Ashraf 💗
+
+Thank you mujhe choose karne ke liye…🥹✨
+
+Thank you best boyfriend hone ke liye 😉🫵🏻
+
+Main hamesha tumhare saath rahungi 🫂🎀
+
+I’m proud to call you mine 😋💗`
 }
 
-.menuText{
-font-size:20px;
-margin-top:10px;
 }
 
-/* BACK BUTTON */
-.backBtn{
-position:absolute;
-bottom:30px;
-left:20px;
-background:rgba(255,255,255,0.7);
-border:none;
-padding:8px 15px;
-border-radius:15px;
-cursor:pointer;
+
+
+/* ---------------- MINI GAME : TAP HEART ---------------- */
+
+function startHeartGame(){
+
+let area = document.getElementById("gameArea")
+
+area.innerHTML = `
+<h3>Tap hearts before time ends 💗</h3>
+<p id="score">Score: 0</p>
+<div id="heartField"></div>
+`
+
+let score = 0
+let scoreText = document.getElementById("score")
+let field = document.getElementById("heartField")
+
+let spawn = setInterval(()=>{
+
+let heart = document.createElement("span")
+heart.innerHTML="💗"
+heart.style.fontSize="35px"
+heart.style.margin="10px"
+heart.style.cursor="pointer"
+
+heart.onclick = ()=>{
+score++
+scoreText.innerText = "Score: "+score
+heart.remove()
 }
 
-/* HEART REVEAL */
-#heartReveal{
-position:fixed;
-inset:0;
-display:flex;
-justify-content:center;
-align-items:center;
-background:rgba(0,0,0,0.2);
-backdrop-filter:blur(4px);
-opacity:0;
-pointer-events:none;
-transition:0.5s;
-}
+field.appendChild(heart)
 
-#heartReveal img{
-width:160px;
-animation:pulse 2s infinite;
-cursor:pointer;
-}
+},700)
 
-@keyframes pulse{
-0%{transform:scale(1);}
-50%{transform:scale(1.15);}
-100%{transform:scale(1);}
-}
 
-/* HEART RAIN */
-.heartDrop{
-position:fixed;
-top:-20px;
-animation:fall 6s linear forwards;
-}
+setTimeout(()=>{
+clearInterval(spawn)
+alert("Game Over 💗 Score: "+score)
+},10000)
 
-@keyframes fall{
-to{transform:translateY(110vh);}
-}
-
-/* MENU BUTTONS */
-.menu-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:18px;
-width:100%;
-max-width:360px;
-margin-top:20px;
-}
-
-.menu-btn{
-border:none;
-border-radius:22px;
-padding:26px 16px;
-font-size:18px;
-font-family:'Patrick Hand', cursive;
-color:#333;
-cursor:pointer;
-box-shadow:0 6px 12px rgba(0,0,0,0.15);
-transition:0.25s;
-}
-
-.menu-btn:active{
-transform:scale(0.96);
-}
-
-/* SOFT COLORS */
-.soft-pink{ background:#ffd6e8; }
-.soft-peach{ background:#ffe2cc; }
-.soft-lavender{ background:#e8ddff; }
-.soft-mint{ background:#dff5ea; }
-
-/* MENU ENTRANCE ANIMATION */
-
-.menu-btn{
-opacity:0;
-transform:translateY(40px);
-animation:menuFade 0.8s ease forwards;
-}
-
-.menu-btn:nth-child(1){ animation-delay:0.2s; }
-.menu-btn:nth-child(2){ animation-delay:0.4s; }
-.menu-btn:nth-child(3){ animation-delay:0.6s; }
-.menu-btn:nth-child(4){ animation-delay:0.8s; }
-
-@keyframes menuFade{
-to{
-opacity:1;
-transform:translateY(0);
-}
 }
