@@ -1,11 +1,10 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Amatic SC', cursive;}
-html,body{height:100%;width:100%;background:url('../assets/images/bg_main.jpg') no-repeat center center fixed;background-size:cover;}
+html,body{height:100%;width:100%;background:url('../assets/images/bg_main.jpg') no-repeat center center fixed;background-size:cover;overflow-x:hidden;}
 #heartRain{pointer-events:none;position:fixed;top:0;left:0;width:100%;height:100%;z-index:5;}
 #heartRain span{position:absolute;top:-50px;font-size:20px;animation:fall 6s linear infinite;}
 @keyframes fall{to{transform:translateY(110vh);}}
-.page{display:none;width:100%;min-height:100vh;flex-direction:column;justify-content:center;align-items:center;}
-.page.active{display:flex;justify-content:center;align-items:center;}
-.page-card{width:90%;max-width:450px;min-height:80%;margin:20px auto;background-size:cover;background-position:center;border-radius:25px;padding:20px;box-shadow:0 8px 25px rgba(0,0,0,0.3);display:flex;flex-direction:column;align-items:center;overflow-y:auto;}
+.page{display:none;width:100%;height:100vh;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:20px;}
+.page.active{display:flex;}
 .gif,.heart-gif{width:90%;max-width:400px;margin:20px auto;border-radius:15px;}
 .scroll{display:flex;overflow-x:auto;gap:10px;padding:10px 0;}
 .scroll img{max-height:200px;border-radius:15px;}
@@ -17,12 +16,11 @@ button:hover{transform:scale(1.05);}
 .song{display:flex;align-items:center;justify-content:space-between;margin:10px 0;width:90%;}
 .song img{height:60px;border-radius:10px;}
 .song button{padding:8px 15px;font-size:16px;border-radius:10px;}
-.song-quote{margin-top:15px;text-align:center;font-size:18px;}
+.song-quote{margin-top:15px;font-size:18px;}
 .games-container{display:flex;overflow-x:auto;gap:10px;padding:10px 0;}
 .game-btn{height:100px;border-radius:15px;cursor:pointer;transition:0.2s;}
 .game-btn:hover{transform:scale(1.05);}
 .quote-card{position:relative;}
 .quote-card img{border-radius:15px;}
 .quote-card p{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:18px;color:#000;text-align:center;}
-.letter.open img{width:90%;border-radius:15px;margin:10px 0;}
-.letter-text{margin-top:10px;font-size:18px;text-align:center;}
+.letter-text{margin-top:10px;font-size:18px;}
