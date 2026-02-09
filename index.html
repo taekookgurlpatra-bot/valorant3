@@ -10,6 +10,9 @@
 
 <body>
 
+<!-- HEART RAIN -->
+<div id="heartRain"></div>
+
 <!-- INTRO -->
 <section class="page active">
 <h2>Gathering sparkles 💗✨..</h2>
@@ -18,9 +21,64 @@
 
 <!-- MENU -->
 <section class="page">
+
 <img src="assets/main.gif" class="gif">
-<p>Enjoy ur presents qt 😘🫵🏻</p>
+<p class="menuText">Enjoy your presents qt 😘🫵🏻</p>
+
+<div class="menu-grid">
+
+<div class="menu-card" onclick="openSection(2)">
+<img src="assets/polaroid1.png">
+<p>You + Me = ♡</p>
+</div>
+
+<div class="menu-card" onclick="openSection(3)">
+<img src="assets/game-image.png">
+<p>Fun zone 💗✨</p>
+</div>
+
+<div class="menu-card" onclick="openSection(4)">
+<img src="assets/spotify1.png">
+<p>Melodies enchanted by you 🎧🎀</p>
+</div>
+
+<div class="menu-card" onclick="openSection(5)">
+<img src="assets/quoteCard.png">
+<p>Promises 😋💗</p>
+</div>
+
+</div>
+
 </section>
+
+<!-- POLAROID -->
+<section class="page">
+<h2>Us 💗</h2>
+<button class="backBtn" onclick="go(1)">← back</button>
+</section>
+
+<!-- FUN ZONE -->
+<section class="page">
+<h2>Fun Zone 🎮</h2>
+<button class="backBtn" onclick="go(1)">← back</button>
+</section>
+
+<!-- MUSIC -->
+<section class="page">
+<h2>Songs that remind me of you 💗</h2>
+<button class="backBtn" onclick="go(1)">← back</button>
+</section>
+
+<!-- PROMISES -->
+<section class="page">
+<h2>Promises 😋💗</h2>
+<button class="backBtn" onclick="go(1)">← back</button>
+</section>
+
+<!-- HEART REVEAL -->
+<div id="heartReveal" onclick="alert('Next part unlocked 💗')">
+<img src="assets/heart.gif">
+</div>
 
 <script src="script.js"></script>
 </body>
