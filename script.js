@@ -112,3 +112,4 @@ document.addEventListener('touchend',e=>{
   else if(diff<-50) nextPage();
   startY=null;
 });
+
