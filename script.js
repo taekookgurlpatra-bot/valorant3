@@ -28,7 +28,7 @@ function openLetter(id){
 /* QUIZ */
 let quizQ=[
 ["Where did we first start talking?","Instagram DMs","WhatsApp","Discord","Snapchat","A"],
-["Who confessed feelings first?","You","Ashraf","Both together","Still confused 😋","A"],
+["Who confessed feelings first?","Debasmita","Ashraf","Both together","Still confused 😋","A"],
 ["Our favourite thing to do together is?","Talking endlessly","Watching stuff together","Sending reels/memes","All of the above","D"],
 ["What best describes our relationship vibe?","Chaotic but cute","Soft & comforting","Funny & dramatic","All of the above","D"],
 ["What is something that reminds me of Ashraf instantly?","Songs","Late night talks","Random cute messages","All of the above","D"],
@@ -50,3 +50,4 @@ function loadQ(){
 }
 function ans(ansGiven,correct){if(ansGiven==correct) score++;qi++;loadQ();}
 loadQ();
+
