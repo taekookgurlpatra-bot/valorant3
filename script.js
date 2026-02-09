@@ -29,6 +29,6 @@ let songs=[
 
 function playSong(i){
   songs.forEach(s=>s.pause())
-  songs[i].currentTime = 0
+  songs[i].currentTime=0
   songs[i].play()
 }
